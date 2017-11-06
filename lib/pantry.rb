@@ -22,8 +22,9 @@ class Pantry
   end
 
   def print_shopping_list
-    shopping_list.keys.each do |ingredient, amount|
-      shopping_list[ingredient] = amount
+    printed = ""
+    @shopping_list.each do |ingredient, amount|
+     printed += (shopping_list[ingredient.to_s]  = shopping_list[amount.to_i])
     end
   end
 end
