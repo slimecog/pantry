@@ -22,4 +22,25 @@ class RecipeTest < Minitest::Test
     r.add_ingredient("Flour", 500)
     assert_equal 500, r.amount_required("Flour")
   end
+
+  def test_recipes_can_be_created
+    r = Recipe.new("Cheese Pizza")
+
+    assert_instance_of Recipe, r
+  end
+
+  def test_recipe_ingredients_start_as_empty_hash
+    r = Recipe.new("Cheese Pizza")
+
+    assert Hash, r.ingredients
+    assert_empty r.ingredients
+  end
+
+  def test_recipe_can_have_ingredients_added
+    r = Recipe.new("Cheese Pizza")
+    r.add_ingredient("Cheese", 20)
+    r.add_ingredient("Flour", 20)
+
+    assert_equal ({"Cheese" => 20, "Flour" => 20}), r.ingredients
+  end
 end
