@@ -33,13 +33,12 @@ class Pantry
   end
 
   def what_can_i_make
-    required = cookbook.map { |recipe| recipe[ingredients] = amount }
+    required = cookbook.map { |recipe| recipe[ingredients] }
     in_stock = stock.map { |ingredient| ingredient[keys] }
-    if in_stock.include?(required)
-      p in_stock.keys
+    if required.include?(in_stock)
+      p cookbook.ingredients
     end
   end
-
 end
 
 
