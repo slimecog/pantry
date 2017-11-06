@@ -20,8 +20,10 @@ class Pantry
       shopping_list[ingredient] += amount
     end
   end
-  
+
   def print_shopping_list
-    @shopping_list.group_by { |ingredient| shopping_list[ingredient] }
+    shopping_list.keys.each do |ingredient, amount|
+      shopping_list[ingredient] = amount
+    end
   end
 end
