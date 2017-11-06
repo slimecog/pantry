@@ -128,7 +128,8 @@ class PantryTest < Minitest::Test
     pantry.add_to_cookbook(r2)
     pantry.add_to_cookbook(r3)
 
-    
+    assert_equal (["Pickles", "Peanuts"]), pantry.what_can_i_make
+  end
 
 
 end

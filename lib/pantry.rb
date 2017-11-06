@@ -28,8 +28,15 @@ class Pantry
   end
 
   def add_to_cookbook(recipe)
-    cookbook << recipe
+    cookbook.push recipe
   end
 
-  
+  def what_can_i_make
+    cookbook.map do |recipe|
+      ingredients = recipe.ingredients
+    end
+    if stock.include?(ingredients)
+
+  end
+
 end
