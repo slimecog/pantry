@@ -20,5 +20,8 @@ class Pantry
       shopping_list[ingredient] += amount
     end
   end
-
+  
+  def print_shopping_list
+    @shopping_list.group_by { |ingredient| shopping_list[ingredient] }
+  end
 end
