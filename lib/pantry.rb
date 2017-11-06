@@ -1,3 +1,4 @@
+require "pry"
 class Pantry
   attr_reader :stock,
               :shopping_list,
@@ -32,11 +33,21 @@ class Pantry
   end
 
   def what_can_i_make
-    cookbook.map do |recipe|
-      ingredients = recipe.ingredients
+    cookbook.reduce(0) do |recipe, (ingredient, name)|
+      recipe = cookbook[ingredient]
     end
-    if stock.include?(ingredients)
-
   end
 
 end
+
+
+
+#
+# def what_can_i_make
+#   cookbook.map do |recipe|
+#     ingredients = recipe[ingredients]
+#   end
+#   if stock.include?(ingredients)
+#     puts recipe[name]
+#   end
+# end
