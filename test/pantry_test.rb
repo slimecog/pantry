@@ -6,21 +6,27 @@ require "pry"
 class PantryTest < Minitest::Test
 
   def test_it_exists
-    p = Pantry.new
+    pantry = Pantry.new
 
-    assert_instance_of Pantry, p
+    assert_instance_of Pantry, pantry
   end
 
   def test_it_has_a_stock_hash_that_starts_empty
-    p = Pantry.new
+    pantry = Pantry.new
 
-    assert Hash, p.stock
-    assert_equal 0, p.stock.count
+    assert Hash, pantry.stock
+    assert_equal 0, pantry.stock.count
   end
 
   def test_it_can_check_stock
-    p = Pantry.new
+    pantry = Pantry.new
 
-    assert_equal 0, p.stock_check("Cheese")
+    assert_equal 0, pantry.stock_check("Cheese")
+  end
+
+  def test_it_can_restock_ingredients
+    pantry = Pantry.new
+
+    assert_equal 10, pantry.restock("Cheese", 10)
   end
 end
