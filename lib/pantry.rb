@@ -1,18 +1,20 @@
 class Pantry
   attr_reader :stock,
-              :shopping_list
+              :shopping_list,
+              :cookbook
 
   def initialize
     @stock = Hash.new(0)
     @shopping_list = Hash.new(0)
+    @cookbook = []
   end
 
   def stock_check(ingredient)
-    @stock[ingredient]
+    stock[ingredient]
   end
 
   def restock(ingredient, amount)
-    @stock[ingredient] += amount
+    stock[ingredient] += amount
   end
 
   def add_to_shopping_list(recipe)
@@ -22,9 +24,12 @@ class Pantry
   end
 
   def print_shopping_list
-    printed = ""
-    @shopping_list.each do |ingredient, amount|
-     printed += (shopping_list[ingredient.to_s]  = shopping_list[amount.to_i])
-    end
+    shopping_list.group_by { |ingredient| shopping_list[ingredient] }
   end
+
+  def add_to_cookbook(recipe)
+    cookbook << recipe
+  end
+
+  
 end
