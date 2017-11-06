@@ -1,3 +1,11 @@
 class Pantry
+  attr_reader :stock
 
+  def initialize
+    @stock = Hash.new(0)
+  end
+
+  def stock_check(ingredient)
+    stock.find { |ingredient| stock[ingredient] }
+  end
 end
